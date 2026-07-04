@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlutenOff Café - Αλεξανδρούπολη</title>
+    <style>
+        /* Βασικό στυλ και χρώματα (Retro/Ζεστά vanilla & καφέ layouts) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfbf7;
+            color: #3e2723;
+        }
+
+        /* Hero Header με ατμοσφαιρική εικόνα καφέ */
+        header {
+            background: linear-gradient(rgba(62, 39, 35, 0.6), rgba(62, 39, 35, 0.7)), 
+                        url('/Users/user/Pictures/Photos Library.photoslibrary/originals/A/AB91D31B-370E-43AF-97C7-79D429FC6D7E.jpeg') no-repeat center center/cover;
+            height: 70vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 2px;
+            font-family: 'Georgia', serif;
+        }
+
+        header p {
+            font-size: 1.6rem;
+            font-style: italic;
+            margin: 0;
+            color: #fff3e0;
+        }
+
+        .badge {
+            background-color: #81c784;
+            color: #1b5e20;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Container περιεχομένου */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        section {
+            margin-bottom: 70px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #5d4037;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background-color: #d7ccc8;
+            margin: 8px auto 0 auto;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .intro-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        /* Μενού / Επιλογές */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .menu-item {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border: 1px solid #efebe9;
+            transition: transform 0.3s ease;
+            text-align: left;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .menu-item h3 {
+            color: #5d4037;
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+
+        /* Γιατί να μας επισκεφθείτε (Νέα ενότητα) */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            text-align: left;
+        }
+
+        .why-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .why-text h3 {
+            color: #5d4037;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .why-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Κριτικές (Reviews) */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: #efebe9;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: left;
+            font-style: italic;
+            position: relative;
+        }
+
+        .review-card p {
+            margin-top: 0;
+            line-height: 1.6;
+        }
+
+        .author {
+            font-weight: bold;
+            font-style: normal;
+            color: #5d4037;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .stars {
+            color: #ffb300;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Πληροφορίες & Επικοινωνία */
+        .info-box {
+            background: #5d4037;
+            color: #fdfbf7;
+            padding: 40px;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .info-column h3 {
+            color: #ffcc80;
+            margin-top: 0;
+            border-bottom: 1px solid #795548;
+            padding-bottom: 10px;
+        }
+
+        .info-column p {
+            margin: 10px 0;
+            font-size: 1.05rem;
+        }
+
+        /* Στυλ για τα νέα κουμπιά επικοινωνίας */
+        .contact-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            background-color: #ffcc80;
+            color: #3e2723;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: background-color 0.2s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ffe0b2;
+            transform: translateY(-2px);
+        }
+
+        .btn-maps {
+            background-color: #fdfbf7;
+            color: #5d4037;
+        }
+
+        .btn-maps:hover {
+            background-color: #efebe9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3e2723;
+            color: #d7ccc8;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive για κινητά */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.2rem; }
+            .why-grid { grid-template-columns: 1fr; text-align: center; }
+            .why-image { order: -1; } /* Η εικόνα πάει πάνω από το κείμενο στα κινητά */
+            .contact-buttons { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GlutenOff</h1>
+        <p>Brunch & Coffee με άρωμα άλλης δεκαετίας</p>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2>Το στέκι μας </h2>
+            <img src="logo.jpeg" alt="Εσωτερικό του GlutenOff Café" class="intro-image">
+            <p class="intro-text">
+                Ένας ζεστός και φιλόξενος vintage χώρος στην καρδιά της Αλεξανδρούπολης. 
+                Εδώ θα απολαύσετε εξαιρετικό καφέ, πλούσιο Brunch και υπέροχες αλμυρές ή γλυκές 
+                δημιουργίες, σε ένα περιβάλλον <strong>αποκλειστικά χωρίς γλουτένη</strong>, φτιαγμένες με αγάπη και φροντίδα για όλους!
+            </p>
+        </section>
+
+        <section>
+            <h2>Τι θα βρείτε σε εμάς</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="καφες.jpg" alt="Premium Καφές">
+                    <h3>Premium Καφές</h3>
+                    <p>Απολαύστε τον αγαπημένο σας καφέ (ζεστό ή freddo) από εξαιρετικό, αρωματικό χαρμάνι.</p>
+                </div>
+                <div class="menu-item">
+                    <img src="κουλουρι.jpg" alt="Gluten-Free Brunch">
+                    <h3>Gluten-Free Brunch</h3>
+                    <p>Μοναδικές, πλούσιες επιλογές για πρωινό και brunch, απόλυτα ασφαλείς για άτομα με κοιλιοκάκη.</p>
+                </div>
+                <div class="menu-item">
+                    <img src="βαφλα.jpg" alt="Γλυκά & Αλμυρά Χωρίς Γλουτένη">
+                    <h3>Γλυκά & Αλμυρά</h3>
+                    <p>Χειροποίητες λιχουδιές, κέικ και σνακ 100% χωρίς γλουτένη, που σερβίρονται φρέσκα κάθε μέρα.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Γιατί αξίζει να μας επισκεφθείτε;</h2>
+            <div class="why-grid">
+                <div class="why-text">
+                    <h3>✅ 100% Ασφάλεια Χωρίς Γλουτένη</h3>
+                    <p>Είμαστε το μοναδικό καφέ στην πόλη που λειτουργεί σε ένα περιβάλλον <strong>εντελώς ελεύθερο από γλουτένη</strong>. Δεν υπάρχει κίνδυνος επιμόλυνσης, οπότε μπορείτε να απολαύσετε τα πάντα με απόλυτη σιγουριά, είτε έχετε κοιλιοκάκη είτε ακολουθείτε μια gluten-free διατροφή.</p>
+                    
+                    <h3>☕ Ποιότητα χωρίς συμβιβασμούς</h3>
+                    <p>Το γεγονός ότι δεν χρησιμοποιούμε γλουτένη δεν σημαίνει ότι κάνουμε εκπτώσεις στη γεύση! Χρησιμοποιούμε τα καλύτερα υλικά και χειροποίητες συνταγές για να σας προσφέρουμε brunch, γλυκά και σνακ που είναι πεντανόστιμα και λατρεύονται από όλους.</p>
+                    
+                    <h3>🕰️ Μοναδική Vintage Ατμόσφαιρα</h3>
+                    <p>Ο χώρος μας είναι σχεδιασμένος για να σας ταξιδέψει σε άλλη δεκαετία. Η ζεστή, retro διακόσμηση και το φιλικό μας προσωπικό δημιουργούν το ιδανικό περιβάλλον για να χαλαρώσετε, να δουλέψετε ή να απολαύσετε τη στιγμή με την παρέα σας.</p>
+                </div>
+                <img src="/Users/user/Pictures/Photos Library.photoslibrary/resources/derivatives/B/B591F0B7-5F92-41F1-BC1B-6A13D4A1BBAA_1_105_c.jpeg" alt="Vintage ατμόσφαιρα GlutenOff" class="why-image">
+            </div>
+        </section>
+
+        <section>
+            <h2>Τι λένε για εμάς</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Υπέροχες δημιουργίες χωρίς γλουτένη που μπορούν να απολαύσουν πάσχοντες από κοιλιοκάκη κ όχι μόνο! Το προσωπικό ευγενικό και πρόθυμο."</p>
+                    <span class="author">- Γιάννα Λαφρίδου</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Εγγύηση ο χώρος, ο καφές και τα φαγητά. Τα κορίτσια πολύ ευγενικά και πάντα χαμογελαστά. Πολύ ζεστός χώρος που θυμίζει άλλη δεκαετία."</p>
+                    <span class="author">- Δαβίδ Κομεσίδης</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Όλα τα προϊόντα είναι χωρίς γλουτένη! Ένα πολύ φιλικό περιβάλλον με καλή εξυπηρέτηση! Έχεις την επιλογή σε αλμυρό & γλυκό."</p>
+                    <span class="author">- Anastasia Ntem</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Πληροφορίες</h2>
+            <div class="info-box">
+                <div class="info-column">
+                    <h3>Πού Είμαστε</h3>
+                    <p>📍 Λεωφόρος Ελ. Βενιζέλου 68</p>
+                    <p>Αλεξανδρούπολη, Τ.Κ. 681 00</p>
+                    <div class="contact-buttons">
+                        <a href="https://maps.google.com/?q=Λεωφόρος+Ελ.+Βενιζέλου+68+Αλεξανδρούπολη" target="_blank" class="btn btn-maps">🗺️ Οδηγίες Χάρτη</a>
+                    </div>
+                </div>
+                <div class="info-column">
+                    <h3>Ωράριο Λειτουργίας</h3>
+                    <p>📅 Δευτέρα - Σάββατο</p>
+                    <p>⏰ Ανοίγει νωρίς το πρωί: 06:30 π.μ.</p>
+                </div>
+                <div class="info-column">
+                    <h3>Επικοινωνία</h3>
+                    <p>📞 Τηλέφωνο: 2551 024382</p>
+                    <p>💬 Περάστε για take-away ή ελάτε να καθίσετε μαζί μας!</p>
+                    <div class="contact-buttons">
+                        <a href="tel:2551024382" class="btn">📞 Κλήση Τώρα</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 GlutenOff Café. Φτιαγμένο με αγάπη στην Αλεξανδρούπολη.</p>
+    </footer>
+
+</body>
+</html>
